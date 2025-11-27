@@ -4,6 +4,7 @@
 // định nghĩa hàm
 void nhapmang2chieu(int a[M][N], int m, int n);
 void xuatmang2chieu(int a[M][N], int m, int n);
+void xuatchiahet3(int a[M][N],int m, int n);
 
 //trien khai
 void nhapmang2chieu(int a[M][N], int m, int n){
@@ -26,6 +27,19 @@ void xuatmang2chieu(int a[M][N], int m, int n){
             printf("%d ",a[i][j]);
         }
         printf("\n");
+    }
+}
+
+void xuatchiahet3(int a[M][N],int m, int n){
+    printf("Xuat phan tu chia het cho 3: ");
+    for(int i = 0; i<m; i++){
+        for (int j=0; j<n; j++)
+        {
+            if(a[i][j] % 3 == 0){
+                printf("%d ", a[i][j]);
+            }
+        }
+        
     }
 }
 
@@ -63,6 +77,7 @@ int main(){
 
     nhapmang2chieu(a,m,n);
     xuatmang2chieu(a,m,n);
+    xuatchiahet3(a,m,n);
 
     return 0;
 }
