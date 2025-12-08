@@ -66,4 +66,4 @@ int main()
         printf("%s \n",s[i]);
        }
     return 0;   
-}
+    }
