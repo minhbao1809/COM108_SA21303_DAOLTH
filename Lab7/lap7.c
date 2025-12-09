@@ -23,7 +23,7 @@ int main()
     */
     // bai 2 
     /*
-    char username[50] = "quocvu";
+    char username[50] = "minh bao";
     int password = 1234;
     char user[100];
     int pass;
