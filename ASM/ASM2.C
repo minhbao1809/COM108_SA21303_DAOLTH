@@ -14,7 +14,7 @@ int main() {
         printf("5. Chuc nang doi tien\n");
         printf("6. Chuc nang tinh lai vay ngan hang vay tra gop\n");
         printf("7. Chuc nang tinh tien mua xe\n");
-        printf("8. Chuc nang sap xep thong tin sinh vien\n");
+        printf("8. Chuc nang sap xep thong tin sinh vien\n"); // GIỮ NGUYÊN
         printf("9. Chuc nang xay dung game FPOLY-LOTT\n");
         printf("10. Chuc nang tinh toan phan so\n");
         printf("0. Thoat ra ngoai\n");
@@ -23,6 +23,7 @@ int main() {
         scanf("%d", &choice);
 
         switch (choice) {
+
         case 1: {
             float x;
             printf("Nhap x: ");
@@ -30,6 +31,7 @@ int main() {
             if (x == (int)x) {
                 int n = (int)x;
                 printf("%d la so nguyen.\n", n);
+
                 int isPrime = 1;
                 if (n < 2) isPrime = 0;
                 for (int i = 2; i <= sqrt(n); i++) {
@@ -38,6 +40,7 @@ int main() {
                         break;
                     }
                 }
+
                 if (isPrime == 1)
                     printf("%d la so nguyen to.\n", n);
                 else
@@ -75,12 +78,10 @@ int main() {
             printf("BCNN = %d\n", bcnn);
             break;
         }
-
         case 3: {
             printf("\nBan da chon Chuc nang 3\n");
             int bd, kt, gio;
             float tien;
-
             printf("Nhap gio bat dau: ");
             scanf("%d", &bd);
             printf("Nhap gio ket thuc: ");
@@ -94,19 +95,15 @@ int main() {
                 tien = 3 * 150000 + (gio - 3) * 150000 * 0.7;
             }
 
-            if (bd >= 14 && bd <= 17) {
-                tien = tien * 0.9;
-            }
-
+            if (bd >= 14 && bd <= 17)
+                tien *= 0.9;
             printf("Tong so tien can thanh toan la: %.0f VND\n", tien);
             break;
         }
-
         case 4: {
             float kwh, hoadon = 0;
             printf("Nhap so dien tieu thu (kWh): ");
             scanf("%f", &kwh);
-
             if (kwh <= 50)
                 hoadon = kwh * 1678;
             else if (kwh <= 100)
@@ -132,7 +129,7 @@ int main() {
                 int count = money / face_value[i];
                 if (count > 0)
                     printf("%d to %d\n", count, face_value[i]);
-                money = money % face_value[i];
+                money %= face_value[i];
             }
             break;
         }
@@ -143,23 +140,36 @@ int main() {
             printf("7. Chuc nang tinh tien mua xe\n");
             break;
         case 8:
-            printf("8. Chuc nang sap xep thong tin sinh vien\n");
+            printf("8. Chuc nang sap xep thong tin sinh vien (dang de trong)\n");
             break;
-        case 9:
-            printf("9. Chuc nang xay dung game FPOLY-LOTT\n");
+        case 9: {
+            printf("\n=== GAME FPOLY-LOTT ===\n");
+            int so1, so2;
+            printf("Nhap 2 so (1–15): ");
+            scanf("%d %d", &so1, &so2);
+            int r1 = rand() % 15 + 1;
+            int r2 = rand() % 15 + 1;
+            printf("So trung thuong: %d - %d\n", r1, r2);
+            int diem = 0;
+            if (so1 == r1 || so1 == r2) diem++;
+            if (so2 == r1 || so2 == r2) diem++;
+            if (diem == 0) printf("Chuc ban may man lan sau!\n");
+            else if (diem == 1) printf("Ban trung giai NHI!\n");
+            else printf("Ban trung giai NHAT!\n");
             break;
+        }
         case 10:
             printf("Chuc nang dang phat trien...\n");
             break;
+
         case 0:
             printf("Tam biet!\n");
             break;
+
         default:
             printf("Chuc nang khong ton tai. Vui long chon lai!\n");
             break;
         }
-
     } while (choice != 0);
-//EM BỊ HƯ LAP NÊN NỘP TRỄ Ạ
     return 0;
 }
